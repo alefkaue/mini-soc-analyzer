@@ -10,7 +10,15 @@ eventos = [
 ]
 
 def contar_eventos(lista_eventos):
-    pass
+    contagem = {}
+    for evento in lista_eventos:
+        tipo = evento['evento']
+        if tipo in contagem:
+            contagem[tipo] += 1
+        else:
+            contagem[tipo] = 1
+    return contagem
+
 
 def identificar_bruteforce(lista_eventos):
     pass
