@@ -37,7 +37,11 @@ def identificar_scanners(lista_eventos):
 
 
 def listar_ips_unicos(lista_eventos):
-    pass
+    ips = []
+    for evento in lista_eventos:
+        if evento['ip'] not in ips:
+            ips.append(evento['ip'])
+    return ips
 
 def gerar_relatorio(lista_eventos):
     pass
