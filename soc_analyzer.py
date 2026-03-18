@@ -28,7 +28,13 @@ def identificar_bruteforce(lista_eventos):
 
 
 def identificar_scanners(lista_eventos):
-    pass
+    scans = {}
+    for evento in lista_eventos:
+        if evento['evento'] == 'scan_porta':
+            ip = evento['ip']
+            scans[ip] = scans.get(ip, 0) + 1
+    return [ip for ip, qtd in scans.items() if qtd >= 2]
+
 
 def listar_ips_unicos(lista_eventos):
     pass
