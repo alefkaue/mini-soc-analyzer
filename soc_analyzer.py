@@ -25,6 +25,9 @@ def identificar_bruteforce(lista_eventos):
     for evento in lista_eventos:
         if evento['evento'] == 'login_falha':
             ip = evento['ip']
+            falhas[ip] = falhas.get(ip, 0) + 1
+            
+    return [ip for ip, qtd in falhas.items() if qtd >= 3]
 
 
 def identificar_scanners(lista_eventos):
